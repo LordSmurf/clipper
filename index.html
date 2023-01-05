@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; script-src 'unsafe-eval'; script-src-elem 'self'; img-src * data:;"
+		/>
+		<meta
+			http-equiv="X-Content-Security-Policy"
+			content="default-src 'self'; script-src 'unsafe-eval' script-src-elem 'self'; img-src * data:;"
+		/>
+		<title>Hello Jules!</title>
+		<link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<main id="app">
+			<nav class="panel">
+				<p class="panel-heading has-text-centered">{{title}}</p>
+				<div class="tabs is-small">
+					<ul>
+						<li class="is-active"><a>Plain Text</a></li>
+						<li><a @click="imagePage()">Images</a></li>
+						<li><a @click="youtubePage()">Youtube</a></li>
+						<li><a @click="codePage()">Code</a></li>
+					</ul>
+				</div>
+				<a
+					class="panel-block is-active"
+					v-for="item in historyReversed"
+					@click="itemClicked(item)"
+				>
+					<img :src="item.image" alt="" />
+					<pre>{{item.text}}</pre>
+					<br />
+					<small>{{item.clipped}}</small>
+				</a>
+			</nav>
+		</main>
+		<!-- You can also require other files to run in this process -->
+		<script src="./renderer.js"></script>
+	</body>
 </html>

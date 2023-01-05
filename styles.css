@@ -1,0 +1,72 @@
+html {
+	overflow: auto;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 12px;
+}
+
+*::-webkit-scrollbar:hover {
+	cursor: pointer !important;
+}
+
+*::-webkit-scrollbar-track {
+	background: grey;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #3273dc;
+	border: 1px solid white;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	cursor: pointer !important;
+}
+
+pre {
+	background-color: inherit;
+	padding: 0px;
+	font-family: inherit;
+	justify-content: left;
+	white-space: pre-wrap;
+	color: inherit;
+}
+
+.panel-heading {
+	background-color: grey;
+	border-radius: 0px !important;
+	-webkit-app-region: drag;
+}
+
+.panel-block {
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 0px !important;
+	border-color: rgba(51, 51, 51, 0.205);
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.panel-block:hover {
+	background-color: cornflowerblue !important;
+	color: white !important;
+	border-style: none;
+	cursor: copy !important;
+}
+
+.buttons {
+	border-radius: 0px;
+}
+
+.tabs.is-small {
+	border-radius: 0px;
+	width: 100vw;
+	padding: 0;
+	margin: 0px 0px;
+}
